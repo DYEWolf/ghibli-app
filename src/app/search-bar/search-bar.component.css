@@ -1,0 +1,8 @@
+input {
+  width: 80%;
+}
+
+mat-option {
+  background: white;
+  color: black;
+}

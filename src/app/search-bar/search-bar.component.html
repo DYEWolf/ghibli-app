@@ -1,1 +1,16 @@
-<p>search-bar works!</p>
+<form class="search-form">
+  <input
+    type="text"
+    placeholder="Search for a movie"
+    [formControl]="control"
+    [matAutocomplete]="auto"
+  />
+  <mat-autocomplete
+    #auto="matAutocomplete"
+    (optionSelected)="movieSelected($event.option.value)"
+  >
+    <mat-option *ngFor="let movie of filteredMovie | async" [value]="movie">
+      {{ movie }}
+    </mat-option>
+  </mat-autocomplete>
+</form>
