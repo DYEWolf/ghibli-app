@@ -7,13 +7,25 @@ import { HttpService } from 'src/app/services/http.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  movies: Array<string>;
+  moviesName: Array<string>;
+  movies: any;
+  data: any;
   constructor(private httpService: HttpService) {}
 
   ngOnInit(): void {
     this.httpService.getAllFilms().subscribe((res) => {
+      this.movies = res;
+      this.data = res;
       const moviesName = res.map((movie) => movie.title);
-      this.movies = moviesName;
+      this.moviesName = moviesName;
+    });
+  }
+
+  receiveFilter($event) {
+    const filterString = $event;
+    this.movies = this.data.filter((str) => {
+      const movieTitle = str.title.toLowerCase();
+      return movieTitle.includes(filterString.toLowerCase());
     });
   }
 }

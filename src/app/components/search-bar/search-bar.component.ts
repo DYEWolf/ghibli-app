@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
@@ -10,8 +10,10 @@ import { map, startWith } from 'rxjs/operators';
 })
 export class SearchBarComponent implements OnInit {
   @Input() movies: [];
+  @Output() filterEvent = new EventEmitter<string>();
   control = new FormControl();
   filteredMovie: Observable<string[]>;
+  filterInput: string = '';
 
   constructor() {}
 
@@ -25,7 +27,7 @@ export class SearchBarComponent implements OnInit {
   private _filter(value: string): string[] {
     const filterValue = this._normalizeValue(value);
     return this.movies.filter((movie) =>
-      this._normalizeValue(movie).startsWith(filterValue)
+      this._normalizeValue(movie).includes(filterValue)
     );
   }
 
@@ -34,6 +36,10 @@ export class SearchBarComponent implements OnInit {
   }
 
   movieSelected(movie): void {
-    console.log(movie);
+    this.filterEvent.emit(movie);
+  }
+
+  filterChange(filter): void {
+    this.filterEvent.emit(filter);
   }
 }

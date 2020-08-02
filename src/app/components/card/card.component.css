@@ -1,0 +1,15 @@
+.movie-card {
+  max-width: 300px;
+  margin-bottom: 30px;
+}
+
+@media (min-width: 600px) {
+  p {
+    display: block;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

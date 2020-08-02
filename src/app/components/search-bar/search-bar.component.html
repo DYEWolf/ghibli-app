@@ -4,6 +4,8 @@
     placeholder="Search for a movie"
     [formControl]="control"
     [matAutocomplete]="auto"
+    [ngModel]="filterInput"
+    (ngModelChange)="filterChange($event)"
   />
   <mat-autocomplete
     #auto="matAutocomplete"

@@ -6,14 +6,25 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { HeaderComponent } from './header/header.component';
-import { SearchBarComponent } from './search-bar/search-bar.component';
+import { HeaderComponent } from './components/header/header.component';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { CardComponent } from './components/card/card.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, SearchBarComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    SearchBarComponent,
+    CardComponent,
+    ModalComponent,
+  ],
   imports: [
     BrowserModule,
     FormsModule,
@@ -23,8 +34,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     BrowserAnimationsModule,
     MatAutocompleteModule,
     MatFormFieldModule,
+    MatCardModule,
+    MatButtonModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
+  entryComponents: [ModalComponent],
 })
 export class AppModule {}

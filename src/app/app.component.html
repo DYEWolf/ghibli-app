@@ -1,2 +1,9 @@
 <app-header></app-header>
-<app-search-bar *ngIf="movies" [movies]="movies"></app-search-bar>
+<app-search-bar
+  *ngIf="moviesName"
+  [movies]="moviesName"
+  (filterEvent)="receiveFilter($event)"
+></app-search-bar>
+<div class="cards-container">
+  <app-card *ngFor="let movie of movies" [movie]="movie"></app-card>
+</div>

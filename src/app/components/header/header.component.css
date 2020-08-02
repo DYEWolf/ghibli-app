@@ -3,7 +3,13 @@ nav {
 }
 
 .ghibli-logo {
-  width: 200px;
+  width: 300px;
   margin-bottom: 20px;
   margin-top: 15px;
+}
+
+@media (min-width: 600px) {
+  .ghibli-logo {
+    width: 500px;
+  }
 }
