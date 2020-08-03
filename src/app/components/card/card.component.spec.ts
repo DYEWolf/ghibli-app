@@ -8,9 +8,8 @@ describe('CardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CardComponent ]
-    })
-    .compileComponents();
+      declarations: [CardComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -22,4 +21,10 @@ describe('CardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have data', async(() => {
+    fixture = TestBed.createComponent(CardComponent);
+    component = fixture.debugElement.componentInstance;
+    expect(component.movie).toBeTruthy();
+  }));
 });
